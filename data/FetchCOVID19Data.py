@@ -19,18 +19,18 @@ def FetchCOVID19Data():
 
     # Add last updated date
     print("Adding updated date...")
-    yesterday_date = date.today() - timedelta(days = 1)
-    df_covid19_case_counts["UpdatedDate"] = yesterday_date
+    today_date = date.today()
+    df_covid19_case_counts["UpdatedDate"] = today_date
     df_covid19_case_counts["UpdatedDate"] = pd.to_datetime(df_covid19_case_counts["UpdatedDate"])
 
 
     # Export as .csv
     print("Exporting COVID-19 cases by county subdivision as .csv...")
-    # filename = str(yesterday_date) + ".csv"
-    # filepath = path.join("C:\\Users\\oneno\\Documents\\GitHub\\pittsburgh-datahub\\data\\covid19", filename)
-    # df_covid19_case_counts.to_csv(filepath,
-    #                               index = False,
-    #                               header = True)
+    filename = str(today_date) + ".csv"
+    filepath = path.join("C:\\Users\\oneno\\Documents\\GitHub\\pittsburgh-datahub\\data\\covid19", filename)
+    df_covid19_case_counts.to_csv(filepath,
+                                  index = False,
+                                  header = True)
     
     print("COVID-19 case pull completed! Primary key determinants are Location and UpdatedDate")
     return df_covid19_case_counts
