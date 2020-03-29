@@ -1,6 +1,6 @@
 # Pittsburgh Datahub
 
-A series of scripts to refresh and process socioeconomic indicators of interest for the city of Pittsburgh
+A series of scripts to refresh and process socioeconomic indicators of interest for the city of Pittsburgh and surrounding areas.
 
 Below is a short description of each folder within this repository.
 
