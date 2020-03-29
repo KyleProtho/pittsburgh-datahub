@@ -15,15 +15,19 @@ def FetchCOVID19Data():
     flayer = item.layers[0]
     df_covid19_case_counts = pd.DataFrame.spatial.from_layer(flayer)
     df_covid19_case_counts = pd.DataFrame(df_covid19_case_counts)
-
-
+    
+    
+    # Convert from spatial dataframe to normal dataframe
+    df_covid19_case_counts = df_covid19_case_counts[["LABEL", "Numberofcases"]]
+    
+    
     # Add last updated date
     print("Adding updated date...")
     today_date = date.today()
     df_covid19_case_counts["UpdatedDate"] = today_date
     df_covid19_case_counts["UpdatedDate"] = pd.to_datetime(df_covid19_case_counts["UpdatedDate"])
-
-
+    
+    
     # Export as .csv
     print("Exporting COVID-19 cases by county subdivision as .csv...")
     filename = str(today_date) + ".csv"
