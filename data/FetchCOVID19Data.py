@@ -10,7 +10,7 @@ from os import path, mkdir
 
 # Import dataframe of case counts from Allegheny County Department of Health
 def FetchCOVID19Data():
-    print("Retrieving COVID-19 case data from the Allegheny County Department of Health")
+    print("Retrieving COVID-19 case data from the Allegheny County Department of Health...")
     item = GIS().content.get("e7fc66943d6f43bcba0c5d0294681d8d")
     flayer = item.layers[0]
     df_covid19_case_counts = pd.DataFrame.spatial.from_layer(flayer)
